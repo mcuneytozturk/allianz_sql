@@ -164,3 +164,9 @@ filtreleme için kullanılır, WHERE ile benzerlik gösterir ancak HAVİNG grupl
 
 dvdrental'da ÖRNEK ;
 "` `" 
+
+# ALIAS
+
+ALIAS(AS) operatörü sorguda yaratılan tablodaki sütuna geçici bir isim vermede kullanılır
+
+" ` SELECT rental_rate, COUNT(*) AS rentalSayisi FROM film GROUP BY rental_rate ` "
