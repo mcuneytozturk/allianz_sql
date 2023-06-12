@@ -93,3 +93,74 @@ iki farklı değer aynı anda benzersiz ise(bu durumda iki değer kendi içinde 
 COUNT operatörü bir tablodaki veya bir sütundaki sorgunun sonucundaki satır sayısını verir 
 
 ` SELECT COUNT(*) FROM tabloAdi WHERE sütun1 = parametre ` 
+
+
+# SQL Temelleri II
+
+## ORDER BY
+
+SQL sorgularında sonuç kümesini belirli bir sütuna veya sütunlara göre sıralanmasını sağlayan bir operatör
+
+` SELECT * FROM tabloAdi ORDER BY sütun1` 
+
+dendiğinde a'dan b'ye yada 0 dan artan bir sıralama yapacaktır
+
+` SELECT * FROM tabloAdi ORDER BY sütun1 DESC`
+
+dendiğinde b'den a'ya yada 0'a doğru azalan bir sıralama yapacaktır
+
+## LIMIT & OFFSET
+
+### LIMIT, sql sorgularında sonuç kümesinin belirli bir sayıda satırını almak için kullanılır
+
+* Burda tabloAdi tablosundaki bütün sütunlar seçilir ancak sadece 5 tane satır ekrana getirilir;
+
+` SELECT * FROM tabloAdi LIMIT 5;`
+
+
+* Bu durum yüksek sayıda satıra sahip tablolarda performans kaybına engel olacaktır.
+
+### OFFSET, SQL sorgularında sonuç kümesi limitlenirken belirli sayıda satırı atlamaya yarar
+
+* Burda tabloAdi tablosundaki bütün sütunlar seçilir ancak sadece 5 tane satır gözükür ve sıradaki 3 satır atlanır
+
+` SELECT * FROM tabloAdi LIMIT 5 OFFSET 3;`
+
+
+# Aggregate Fonksiyonlar
+
+Verileri gruplayarak, bir sütundaki veriler üzerinden hesaplamalar yapar
+
+### AVG sütundaki değerlerin ortalamasını hesaplar
+
+"` SELECT AVG(sütun1) FROM tabloAdi `"
+
+dvdrental'dan ÖRNEK ; 
+" `SELECT AVG(length) FROM film WHERE rental_rate = 2.99 ` film tablosunda kiralama oranı 2.99 olan filmlerin sürelerinin ortalamasını bulur"
+
+### SUM sütundaki değerlerin toplam değerini hesaplar
+
+"` SELECT SUM(sütun1) FROM tabloAdi `"
+
+### MIN sütundaki minimum değeri bulur
+
+"` SELECT MIN(sütun1) FROM tabloAdi `"
+
+### MAX sütundaki maximum değeri bulur
+
+"` SELECT MAX(sütun1) FROM tabloAdi `"
+
+# GROUP BY operatörü
+
+SQL sorgularında verileri belirli bir sütuna göre gruplamaya yarayan operatörüdür.
+
+dvdrental'da ÖRNEK ;
+
+" ` SELECT rental_rate, COUNT(*) FROM film GROUP BY rental_rate; ` "
+
+# HAVING operatörü
+
+filtreleme için kullanılır, WHERE ile benzerlik gösterir ancak HAVİNG gruplandırılmış sonuçları filtrelendirir
+
+dvdrental'da ÖRNEK ;
+"` `" 
